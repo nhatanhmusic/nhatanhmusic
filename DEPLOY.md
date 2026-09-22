@@ -6,7 +6,8 @@ tính bất kỳ** để nhập ảnh, giá, thông tin thật — không cần 
 Chưa phải bản bán hàng chính thức. Khi có đủ ảnh thật và thông tin thật thì
 cũng chính bản này, không phải deploy lại.
 
-Ba dịch vụ, tổng **5 $/tháng** giai đoạn này, **14 $** khi bán thật (Netlify Personal):
+Ba dịch vụ, tổng **5 $/tháng** (hoặc **0 $** nếu backend chạy Render Free và chấp nhận
+ngủ sau 15 phút — xem "Bước 2 thay thế"):
 
 | Phần | Dịch vụ | Tiền |
 |---|---|---|
@@ -61,6 +62,25 @@ chủ shop đã nhập ở local (hotline, địa chỉ, đoạn giới thiệu)
 Backend **từ chối khởi động** nếu thiếu `JWT_SECRET`, `ADMIN_PASSWORD`, `DB_URL`… —
 đó là chủ ý, để không bao giờ chạy trên mạng với mật khẩu mặc định `admin123`.
 Lỗi sẽ ghi rõ tên biến còn thiếu trong log Railway.
+
+### Bước 2 (thay thế) — Render Free: chạy backend 0 đồng, chấp nhận ngủ
+
+Chỉ để chủ shop nhập liệu, chưa cần luôn-chạy thì dùng Render thay Railway — **không mất
+tiền, không cần thẻ**. Backend ngủ sau 15 phút không ai dùng; lần đầu mở trong ngày chờ
+~1 phút. Database **vẫn ở Neon** (bước 1) — không dùng Postgres của Render vì nó tự xóa
+sau 30 ngày.
+
+1. render.com → New → **Web Service** → connect GitHub → chọn repo
+2. **Root Directory**: `nhatanh/backend` · **Runtime**: Docker · **Instance type**: Free
+   · **Region**: Singapore
+3. **Environment** → dán cùng bộ biến như Railway ở trên (`DB_URL`, `JWT_SECRET`,
+   `ADMIN_PASSWORD`…). Thêm `JAVA_OPTS=-Xmx320m` cho vừa 512 MB RAM của gói Free
+4. **Health Check Path**: `/actuator/health`
+5. Deploy. Domain dạng `nhatanh-backend.onrender.com` — dùng domain này ở bước 3
+   thay cho domain Railway
+
+Muốn hết ngủ về sau: tạo service trên Railway với cùng biến môi trường, trỏ cùng
+`DB_URL` → dữ liệu giữ nguyên, chỉ đổi `NEXT_PUBLIC_API_BASE` bên Netlify.
 
 ## Bước 3 — Netlify: chạy frontend
 
