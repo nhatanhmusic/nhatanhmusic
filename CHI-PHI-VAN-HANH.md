@@ -5,17 +5,64 @@ khảo 1 $ ≈ 26.000 ₫.*
 
 ---
 
-## Tóm tắt
+## Tóm tắt — tổng chi phí một năm
 
-| | Mỗi tháng | Mỗi năm |
+Gồm hạ tầng chạy web (4 dịch vụ, trả theo tháng) + tên miền `.vn` mua tại PA Việt Nam
+(trả theo năm).
+
+| | Năm đầu | Mỗi năm sau |
 |---|---|---|
-| **Giai đoạn hiện tại** — web lên mạng, shop tự nhập đàn, ảnh, nội dung | **5 $ ≈ 130.000 ₫** | ≈ 1,6 triệu |
-| **Khi bắt đầu bán online** — thêm giỏ hàng, thanh toán, khách vào đông hơn | **14 $ ≈ 365.000 ₫** | ≈ 4,4 triệu |
-| Tên miền riêng (ví dụ `nhatanhmusic.vn`) | — | 300.000 – 800.000 ₫ |
+| **Giai đoạn hiện tại** — web lên mạng, shop tự nhập đàn, ảnh, nội dung | **≈ 2.010.000 ₫** | **≈ 2.072.000 ₫** |
+| **Khi bắt đầu bán online** — giỏ hàng, thanh toán, chạy quảng cáo | **≈ 4.818.000 ₫** | **≈ 4.880.000 ₫** |
 
-Không có phí cài đặt, không hợp đồng dài hạn. Mọi dịch vụ đều trả theo tháng và hủy
-được bất cứ lúc nào. Toàn bộ dữ liệu (đàn, giá, ảnh, nội dung) thuộc về shop và
-chuyển đi nơi khác được.
+Chi tiết cấu thành:
+
+| Khoản | Giai đoạn hiện tại | Khi bán online |
+|---|---|---|
+| Hạ tầng chạy web (Railway + Neon + Netlify + R2) | 5 $/tháng × 12 = 60 $ ≈ **1.560.000 ₫** | 14 $/tháng × 12 = 168 $ ≈ **4.368.000 ₫** |
+| Tên miền `.vn` — năm đầu | **450.000 ₫** | 450.000 ₫ |
+| Tên miền `.vn` — gia hạn từ năm 2 | 512.000 ₫ | 512.000 ₫ |
+
+Tính ra **170.000 – 175.000 ₫ mỗi tháng** lúc này, và **400.000 – 410.000 ₫ mỗi tháng**
+khi bán thật. Không có phí cài đặt, không hợp đồng dài hạn với hạ tầng — hủy được bất
+cứ lúc nào. Toàn bộ dữ liệu (đàn, giá, ảnh, nội dung) thuộc về shop và chuyển đi nơi
+khác được.
+
+---
+
+## Tên miền — mua ở PA Việt Nam
+
+Bảng giá tại pavietnam.vn, tra ngày 22/9/2026, **chưa gồm VAT** trừ chỗ ghi rõ:
+
+| Đuôi | Đăng ký năm đầu | Gia hạn mỗi năm | Ghi chú |
+|---|---|---|---|
+| **`.vn`** — đề xuất | **450.000 ₫** (lệ phí 100.000 + phí duy trì 350.000, VAT 0) | **512.000 ₫** (duy trì 350.000 + quản trị 150.000 + VAT 12.000) | Đuôi quốc gia, do Bộ KH&CN quản lý |
+| `.com.vn` | 350.000 ₫ | 412.000 ₫ | Rẻ hơn `.vn` 100.000/năm, ít "sang" hơn |
+| `.com` | 25.000 ₫ **nhưng phải đăng ký 3 năm một lần** | 429.000 ₫ + VAT ≈ 472.000 ₫ | Đuôi quốc tế |
+
+**Vì sao đề xuất `.vn`:** khách Việt Nam tin đuôi `.vn` hơn — biết chắc là doanh nghiệp
+trong nước, có đăng ký thật. Google cũng ưu tiên `.vn` khi người dùng ở Việt Nam tìm
+kiếm. Tranh chấp tên miền (nếu có) xử lý trong nước. Chênh với `.com.vn` chỉ 100.000 ₫
+một năm.
+
+**Trong giá tên miền đã có:** quản lý DNS (trỏ tên miền về web), bảo vệ thông tin chủ
+sở hữu năm đầu, tài khoản quản trị tên miền. **Không cần** mua thêm hosting, email hay
+SSL của PA Việt Nam — web đã có hạ tầng riêng, SSL (ổ khóa `https`) được Netlify và
+Railway cấp miễn phí, tự gia hạn.
+
+**Tên miền đứng tên ai:** đăng ký bằng thông tin của chủ shop (CMND/CCCD hoặc giấy ĐKKD
+với `.vn`). Người kỹ thuật chỉ cần quyền vào phần DNS để trỏ. Tên miền là tài sản của
+shop, đổi người làm web không mất.
+
+**Sau khi mua, người kỹ thuật cần ~1 giờ để:**
+
+1. Trỏ `nhatanhmusic.vn` và `www.nhatanhmusic.vn` về Netlify — trang khách
+2. Trỏ `api.nhatanhmusic.vn` về Railway — bộ máy xử lý
+3. Cập nhật hai biến cấu hình trên Railway cho khớp tên miền mới
+4. Chờ 15 phút – vài giờ để tên miền lan ra toàn cầu, SSL tự bật
+
+Đề xuất mua **2 năm một lần** để khỏi quên gia hạn — tên miền hết hạn là web tắt và
+sau 30–60 ngày người khác mua mất.
 
 ---
 
@@ -71,10 +118,9 @@ tóm tắt.
 | Đăng nhiều đàn, khách xem nhiều | Railway | Máy tự dùng nhiều tài nguyên hơn, tính theo dùng | +3 – 8 $ khi lên vài chục nghìn lượt/ngày |
 | Trên 3.000 cây đàn có ảnh (khó xảy ra với đàn cũ) | Cloudflare R2 | Tự tính phần vượt | 0,015 $/GB, tức 10 GB thêm ≈ 4.000 ₫/tháng |
 | Trên 0,5 GB dữ liệu (tương đương hàng chục nghìn cây) | Neon | Lên gói trả tiền | 19 $/tháng |
-| Muốn tên miền riêng | Nhà đăng ký `.vn` / `.com` | Mua và trỏ về web, mất chừng 1 giờ | 300.000 – 800.000 ₫/năm |
 
-Nói cách khác: **trong vòng một năm đầu, chi phí gần như chắc chắn nằm giữa 5 $ và
-14 $ mỗi tháng.** Không có khoản bất ngờ nào — cả bốn dịch vụ đều có giới hạn rõ
+Nói cách khác: **trong vòng một năm đầu, chi phí hạ tầng gần như chắc chắn nằm giữa
+5 $ và 14 $ mỗi tháng**, cộng tên miền ~500.000 ₫ một năm. Không có khoản bất ngờ nào — cả bốn dịch vụ đều có giới hạn rõ
 ràng, không tự động tính thêm tiền khi chưa được bật.
 
 ---
@@ -108,7 +154,7 @@ ràng, không tự động tính thêm tiền khi chưa được bật.
 - Thêm tính năng mới, sửa giao diện — đẩy code lên, web tự cập nhật trong 2–3 phút,
   không gián đoạn
 - Nâng gói khi tới ngưỡng ở bảng trên
-- Kết nối VNPay, tên miền
+- Kết nối VNPay; trỏ tên miền khi mua xong
 
 ---
 
