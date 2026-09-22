@@ -28,7 +28,7 @@ Ba dịch vụ, tổng **5 $/tháng**, không tăng khi bắt đầu bán:
    ```
 3. Ghi lại: `DB_URL` (chuỗi trên), `DB_USER`, `DB_PASSWORD` (Neon hiện ở cùng chỗ)
 
-Không cần tạo bảng — Flyway tự chạy 5 migration khi backend khởi động lần đầu.
+Không cần tạo bảng — Flyway tự chạy 6 migration khi backend khởi động lần đầu.
 
 ## Bước 2 — Railway: chạy backend
 
@@ -118,7 +118,7 @@ Không có bước này thì nút **Chọn ảnh** trong admin bị ẩn và tra
    ```
    Redeploy. Nút **Chọn ảnh** xuất hiện trong form sửa cây đàn.
 
-Ảnh đi thẳng từ trình duyệt lên R2, không qua Spring Boot, không qua Vercel. Mỗi lần
+Ảnh đi thẳng từ trình duyệt lên R2, không qua Spring Boot, không qua Netlify. Mỗi lần
 chọn một file, trình duyệt tự đẩy ba bản: hiển thị 1600px, thu nhỏ 600px, và bản gốc.
 
 ---
@@ -135,7 +135,7 @@ https://<railway>/swagger-ui.html          tài liệu API
 ## Khi sửa code về sau
 
 Push lên GitHub là cả Railway lẫn Netlify tự build và deploy lại. Migration mới
-(`V6__…sql`) tự chạy lúc backend khởi động. **Không bao giờ sửa file migration
+(`V7__…sql`) tự chạy lúc backend khởi động. **Không bao giờ sửa file migration
 đã chạy** — Flyway sẽ báo checksum lệch và từ chối khởi động; viết file mới.
 
 ## Trước khi mở bán thật
