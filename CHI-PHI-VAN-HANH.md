@@ -5,28 +5,19 @@ khảo 1 $ ≈ 26.000 ₫.*
 
 ---
 
-## Tóm tắt — tổng chi phí một năm
-
-Gồm hạ tầng chạy web (4 dịch vụ, trả theo tháng) + tên miền `.vn` mua tại PA Việt Nam
-(trả theo năm).
+## Tổng chi phí một năm
 
 | | Năm đầu | Mỗi năm sau |
 |---|---|---|
-| **Giai đoạn hiện tại** — web lên mạng, shop tự nhập đàn, ảnh, nội dung | **≈ 2.010.000 ₫** | **≈ 2.072.000 ₫** |
-| **Khi bắt đầu bán online** — giỏ hàng, thanh toán, chạy quảng cáo | **≈ 4.818.000 ₫** | **≈ 4.880.000 ₫** |
+| Hạ tầng chạy web (Railway + Neon + Netlify + Cloudflare R2) | 5 $ × 12 tháng = 60 $ ≈ **1.560.000 ₫** | ≈ 1.560.000 ₫ |
+| Tên miền `.vn` tại PA Việt Nam | **450.000 ₫** | 512.000 ₫ |
+| **Tổng** | **≈ 2.010.000 ₫** | **≈ 2.072.000 ₫** |
 
-Chi tiết cấu thành:
+Tính ra khoảng **170.000 ₫ mỗi tháng**.
 
-| Khoản | Giai đoạn hiện tại | Khi bán online |
-|---|---|---|
-| Hạ tầng chạy web (Railway + Neon + Netlify + R2) | 5 $/tháng × 12 = 60 $ ≈ **1.560.000 ₫** | 14 $/tháng × 12 = 168 $ ≈ **4.368.000 ₫** |
-| Tên miền `.vn` — năm đầu | **450.000 ₫** | 450.000 ₫ |
-| Tên miền `.vn` — gia hạn từ năm 2 | 512.000 ₫ | 512.000 ₫ |
-
-Tính ra **170.000 – 175.000 ₫ mỗi tháng** lúc này, và **400.000 – 410.000 ₫ mỗi tháng**
-khi bán thật. Không có phí cài đặt, không hợp đồng dài hạn với hạ tầng — hủy được bất
-cứ lúc nào. Toàn bộ dữ liệu (đàn, giá, ảnh, nội dung) thuộc về shop và chuyển đi nơi
-khác được.
+Hạ tầng trả theo tháng bằng thẻ, hủy lúc nào cũng được, không phí cài đặt. Tên miền
+trả theo năm. Toàn bộ dữ liệu (đàn, giá, ảnh, nội dung) thuộc về shop và chuyển đi
+nơi khác được.
 
 ---
 
@@ -81,13 +72,13 @@ rẻ nhất, và hỏng phần nào chỉ thay phần đó.
 
 ---
 
-## Chi phí chi tiết — giai đoạn hiện tại
+## Hạ tầng chạy web — 5 $/tháng gồm những gì
 
-| Dịch vụ | Gói | Giá/tháng | Gói này cho được gì | Đủ cho shop tới mức nào |
+| Dịch vụ | Gói | Giá/tháng | Gói này cho được gì | Đủ tới mức nào |
 |---|---|---|---|---|
 | **Railway** — bộ máy xử lý | Hobby | **5 $** | Máy chạy 24/24, không tắt | Vài nghìn lượt xem/ngày vẫn thoải mái |
 | **Neon** — cơ sở dữ liệu | Free | 0 $ | 0,5 GB dữ liệu, tự sao lưu, khôi phục về 6 giờ trước | Kho 128 cây dùng ~5 MB, tức **1 %**. Vài nghìn cây vẫn chưa hết |
-| **Netlify** — giao diện | Free | 0 $ | 300 "credit"/tháng, xem giải thích bên dưới | Đủ cho giai đoạn nhập liệu và giới thiệu |
+| **Netlify** — giao diện | Free | 0 $ | 300 "credit"/tháng, xem giải thích bên dưới | Đủ cho lượng khách hiện tại |
 | **Cloudflare R2** — kho ảnh | Free | 0 $ | 10 GB ảnh, **không tính phí tải ảnh ra** | ≈ **3.000 cây đàn** với 6 ảnh mỗi cây |
 | **Tổng** | | **5 $** | | |
 
@@ -105,23 +96,22 @@ Sửa giá, thêm đàn, đổi nội dung trong trang quản trị **không t�
 mới tốn.
 
 Nếu một tháng nào đó web tắt vì hết credit: nâng lên gói Personal **9 $/tháng**
-(1.000 credit, và mua thêm được). Đây chính là khoản chênh giữa 5 $ và 14 $ ở bảng
-tóm tắt.
+(1.000 credit, và mua thêm được). Chưa cần lúc này.
 
 ---
 
-## Khi kinh doanh phát triển — ngưỡng nào thì trả thêm
+## Sau này nếu khách đông hơn
 
-| Tình huống | Dịch vụ ảnh hưởng | Cần làm | Thêm bao nhiêu |
-|---|---|---|---|
-| Bắt đầu bán online, chạy quảng cáo, khách vào đông | Netlify | Lên Personal | +9 $ → **14 $/tháng** |
-| Đăng nhiều đàn, khách xem nhiều | Railway | Máy tự dùng nhiều tài nguyên hơn, tính theo dùng | +3 – 8 $ khi lên vài chục nghìn lượt/ngày |
-| Trên 3.000 cây đàn có ảnh (khó xảy ra với đàn cũ) | Cloudflare R2 | Tự tính phần vượt | 0,015 $/GB, tức 10 GB thêm ≈ 4.000 ₫/tháng |
-| Trên 0,5 GB dữ liệu (tương đương hàng chục nghìn cây) | Neon | Lên gói trả tiền | 19 $/tháng |
+Không cần làm gì bây giờ. Ghi ra để biết trước chỗ nào có thể phát sinh và bao nhiêu:
 
-Nói cách khác: **trong vòng một năm đầu, chi phí hạ tầng gần như chắc chắn nằm giữa
-5 $ và 14 $ mỗi tháng**, cộng tên miền ~500.000 ₫ một năm. Không có khoản bất ngờ nào — cả bốn dịch vụ đều có giới hạn rõ
-ràng, không tự động tính thêm tiền khi chưa được bật.
+| Khi nào | Dịch vụ | Thêm bao nhiêu |
+|---|---|---|
+| Chạy quảng cáo, khách vào nhiều, web hết credit | Netlify → gói Personal | +9 $/tháng |
+| Vài chục nghìn lượt xem một ngày | Railway tính thêm theo mức dùng | +3 – 8 $/tháng |
+| Trên 3.000 cây đàn có ảnh | Cloudflare R2 | ~4.000 ₫/tháng cho mỗi 10 GB thêm |
+| Trên 0,5 GB dữ liệu (hàng chục nghìn cây) | Neon | +19 $/tháng |
+
+Cả bốn dịch vụ đều có giới hạn rõ, **không tự tính thêm tiền** khi chưa được bật.
 
 ---
 
@@ -176,19 +166,18 @@ thuật về sau không ảnh hưởng gì tới web.
 
 ## Lộ trình phát triển (theo kế hoạch đã thống nhất)
 
-| Giai đoạn | Nội dung | Ảnh hưởng chi phí vận hành |
-|---|---|---|
-| **1 — đang có** | Xem đàn, lọc, chi tiết từng cây, trang quản trị đầy đủ | 5 $/tháng |
-| 2 | Giỏ hàng, đặt hàng, chuyển khoản QR, quản lý đơn | Nâng Netlify → 14 $/tháng |
-| 3 | Đặt lịch setup/sửa chữa, phiếu sửa, lịch xưởng | Không đổi |
-| 4 | Form bán đàn / ký gửi, nút trả giá | Không đổi |
-| 5 | Khóa học, đăng ký lớp, tài khoản khách, VNPay | Không đổi + phí VNPay theo giao dịch |
-| 6 | Báo cáo doanh thu, đánh giá khách, tối ưu tìm kiếm Google | Không đổi |
+| Giai đoạn | Nội dung |
+|---|---|
+| **1 — đang có** | Xem đàn, lọc, chi tiết từng cây, trang quản trị đầy đủ |
+| 2 | Giỏ hàng, đặt hàng, chuyển khoản QR, quản lý đơn |
+| 3 | Đặt lịch setup/sửa chữa, phiếu sửa, lịch xưởng |
+| 4 | Form bán đàn / ký gửi, nút trả giá |
+| 5 | Khóa học, đăng ký lớp, tài khoản khách, VNPay |
+| 6 | Báo cáo doanh thu, đánh giá khách, tối ưu tìm kiếm Google |
 
 Kiến trúc hiện tại đã được xây để đi hết sáu giai đoạn mà **không phải làm lại** và
-không đổi nhà cung cấp.
-
----
+không đổi nhà cung cấp. Chi phí vận hành giữ nguyên qua các giai đoạn, trừ khi khách
+đông tới mức ở bảng "Sau này nếu khách đông hơn".
 
 ## Nếu muốn rẻ hơn nữa về lâu dài
 
