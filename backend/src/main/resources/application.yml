@@ -1,0 +1,106 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: nhatanh-backend
+  profiles:
+    # `local`  — Postgres nhung, chay `mvn spring-boot:run` la xong, khong cai gi.
+    # `server` — Postgres that (Neon / Docker), doc DB_URL / DB_USER / DB_PASSWORD.
+    default: local
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate      # Flyway lam chu schema, JPA chi kiem tra
+    properties:
+      hibernate:
+        jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jackson:
+    default-property-inclusion: non_null
+
+app:
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:3000}
+  jwt:
+    secret: ${JWT_SECRET:doi-chuoi-nay-truoc-khi-len-that-toi-thieu-32-ky-tu-nhe}
+    access-token-minutes: 15
+  admin:
+    email: ${ADMIN_EMAIL:admin@nhatanh.vn}
+    password: ${ADMIN_PASSWORD:admin123}
+    name: ${ADMIN_NAME:Quản trị Nhật Anh}
+  # Tai khoan khach de thu API. Chua co trang dang nhap cho khach (Giai doan 5).
+  # Len that: dat APP_DEMO_CUSTOMER_ENABLED=false.
+  demo-customer:
+    enabled: ${APP_DEMO_CUSTOMER_ENABLED:true}
+    email: ${DEMO_CUSTOMER_EMAIL:khach@nhatanh.vn}
+    password: ${DEMO_CUSTOMER_PASSWORD:khach123}
+    name: ${DEMO_CUSTOMER_NAME:Khách hàng demo}
+    phone: ${DEMO_CUSTOMER_PHONE:0900 000 001}
+  media:
+    # De trong khi chay local: presign tra ve 503 kem giai thich.
+    # Dien vao khi da tao bucket R2 that (muc 5).
+    r2-account-id: ${R2_ACCOUNT_ID:}
+    r2-access-key: ${R2_ACCESS_KEY:}
+    r2-secret-key: ${R2_SECRET_KEY:}
+    r2-bucket: ${R2_BUCKET:nhatanh-media}
+    public-base-url: ${MEDIA_PUBLIC_BASE_URL:http://localhost:3000/media}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    vn.nhatanh: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+app:
+  embedded-db:
+    enabled: true
+    port: 5433
+    # De trong = dat o ~/.nhatanh/localdb (tranh duong dan co dau tieng Viet)
+    data-dir: ""
+
+---
+# ---------------------------------------------------------------------------
+# Profile `server` — chay tren may chu that. Khong co gia tri mac dinh cho
+# bat ky bi mat nao: thieu bien moi truong la backend TU CHOI khoi dong,
+# con hon la am tham chay voi mat khau "admin123".
+# ---------------------------------------------------------------------------
+spring:
+  config:
+    activate:
+      on-profile: server
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+app:
+  embedded-db:
+    enabled: false
+  jwt:
+    secret: ${JWT_SECRET}
+  admin:
+    email: ${ADMIN_EMAIL}
+    password: ${ADMIN_PASSWORD}
+  demo-customer:
+    enabled: ${APP_DEMO_CUSTOMER_ENABLED:false}
+  cors:
+    allowed-origins: ${CORS_ORIGINS}
+  media:
+    public-base-url: ${MEDIA_PUBLIC_BASE_URL}
+
+logging:
+  level:
+    vn.nhatanh: INFO

@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>gio-hang-thanh-toan — Nhật Anh Music</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bitter:wght@500;600;700&display=swap">
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:#F5F1E6;color:#18241C;
+      font-family:'Be Vietnam Pro',system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Bitter',Georgia,serif;margin:0;color:#16291D;letter-spacing:-.01em;line-height:1.2}
+    p{margin:0}
+    a{color:#1F3D2B;text-decoration:none}
+    a:hover{color:#9C6B2F}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:0 26px;
+      border-radius:3px;border:1px solid #1F3D2B;background:#1F3D2B;color:#F5F1E6;
+      font-family:'Be Vietnam Pro',sans-serif;font-size:15.5px;font-weight:600;cursor:pointer}
+    .btn-alt{background:transparent;color:#1F3D2B}
+    .card{background:#FCFAF3;border:1px solid #DED7C4;border-radius:4px}
+    .ph{background:repeating-linear-gradient(135deg,#EFEADB 0 10px,#E8E2D1 10px 20px);
+      display:flex;align-items:center;justify-content:center;color:#A69C86;
+      font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+    .lbl{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#16291D}
+    .inp{height:48px;border:1px solid #C9C0A8;border-radius:3px;background:#FCFAF3;
+      display:flex;align-items:center;padding:0 14px;font-size:14.5px;color:#8B9188}
+    .inp-filled{color:#18241C;font-weight:500}
+    .radio{width:19px;height:19px;border:1.5px solid #B4AC97;border-radius:50%;background:#FCFAF3;flex-shrink:0}
+    .radio-on{border:5.5px solid #1F3D2B;background:#FCFAF3}
+    .sumrow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;font-size:14.5px}
+    .tag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:2px;
+      font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  </style>
+</head>
+<body>
+
+<div style="width:1440px;background:#F5F1E6">
+
+  <!-- header rút gọn khi thanh toán -->
+  <header style="background:#F5F1E6;border-bottom:1px solid #DED7C4">
+    <div style="max-width:1220px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;gap:20px">
+      <img src="../assets/logo-round.png" alt="Nhật Anh" style="width:64px;height:64px;display:block">
+      <h3 style="font-size:19px;font-weight:600">Thanh toán</h3>
+      <div style="flex-grow:1"></div>
+      <div style="display:flex;align-items:center;gap:9px;font-size:13.5px;color:#5E6B60">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2F5A40" stroke-width="1.7"><rect x="4.5" y="10" width="15" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 018 0V10" stroke-linecap="round"/></svg>
+        Kết nối được mã hóa · Đơn hàng của bạn an toàn
+      </div>
+    </div>
+  </header>
+
+  <!-- stepper -->
+  <div style="background:#FCFAF3;border-bottom:1px solid #DED7C4">
+    <div style="max-width:1220px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;gap:14px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="width:28px;height:28px;border-radius:50%;background:#1F3D2B;color:#F5F1E6;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F5F1E6" stroke-width="3.2"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span style="font-size:14.5px;font-weight:600;color:#16291D">Giỏ hàng</span>
+      </div>
+      <div style="flex-grow:1;height:1px;background:#DED7C4"></div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="width:28px;height:28px;border-radius:50%;background:#1F3D2B;color:#F5F1E6;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">2</span>
+        <span style="font-size:14.5px;font-weight:600;color:#16291D">Thông tin &amp; thanh toán</span>
+      </div>
+      <div style="flex-grow:1;height:1px;background:#DED7C4"></div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="width:28px;height:28px;border-radius:50%;border:1.5px solid #C9C0A8;color:#8B9188;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">3</span>
+        <span style="font-size:14.5px;font-weight:500;color:#8B9188">Hoàn tất</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1220px;margin:0 auto;padding:34px 40px 60px;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:40px;align-items:start">
+
+    <!-- ── CỘT TRÁI ── -->
+    <div style="display:flex;flex-direction:column;gap:26px">
+
+      <!-- giỏ hàng -->
+      <div class="card" style="padding:24px 26px">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid #EAE4D5">
+          <h3 style="font-size:19px;font-weight:600">Giỏ hàng · 3 sản phẩm</h3>
+          <a href="#" style="font-size:13.5px;font-weight:600">Tiếp tục mua sắm</a>
+        </div>
+
+        <div style="display:flex;gap:18px;padding:20px 0;border-bottom:1px solid #EAE4D5">
+          <div class="ph" style="width:92px;height:92px;border-radius:3px;flex-shrink:0">[Ảnh]</div>
+          <div style="display:flex;flex-direction:column;gap:5px;flex-grow:1">
+            <span style="font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#9C6B2F;font-weight:600">Fender</span>
+            <span style="font-weight:600;font-size:15.5px">Player Stratocaster MIM — Sunburst</span>
+            <span style="display:inline-flex;align-items:center;padding:3px 8px;border-radius:2px;font-size:11px;font-weight:700;background:#DFEDE3;color:#245C3B;align-self:flex-start">Như mới</span>
+            <span style="font-size:13.5px;color:#5E6B60">Dây 09–42 · 3,52 kg · serial VN22-04187</span>
+            <label style="display:flex;align-items:center;gap:9px;font-size:13.5px;color:#3C463E;padding-top:6px">
+              <span style="width:17px;height:17px;background:#1F3D2B;border-radius:2px;display:flex;align-items:center;justify-content:center">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F5F1E6" stroke-width="3.4"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              Thêm gói <b style="margin:0 3px">setup toàn diện</b> theo cách chơi của bạn
+              <span style="color:#9C6B2F;font-weight:600">+450.000₫</span>
+            </label>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <span style="font-family:Bitter,serif;font-size:18px;font-weight:700;color:#1F3D2B">18.900.000₫</span>
+            <div style="display:flex;align-items:center;border:1px solid #C9C0A8;border-radius:3px;height:38px">
+              <span style="width:34px;text-align:center;color:#5E6B60">−</span>
+              <span style="width:30px;text-align:center;font-weight:600;font-size:14.5px">1</span>
+              <span style="width:34px;text-align:center;color:#1F3D2B">+</span>
+            </div>
+            <a href="#" style="font-size:13px;color:#8C3A2B">Xóa</a>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:18px;padding:20px 0;border-bottom:1px solid #EAE4D5">
+          <div class="ph" style="width:92px;height:92px;border-radius:3px;flex-shrink:0">[Ảnh]</div>
+          <div style="display:flex;flex-direction:column;gap:5px;flex-grow:1">
+            <span style="font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#9C6B2F;font-weight:600">Boss</span>
+            <span style="font-weight:600;font-size:15.5px">DS-1 Distortion Pedal</span>
+            <span style="font-size:13.5px;color:#5E6B60">Mới 100% · Bảo hành 12 tháng</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <span style="font-family:Bitter,serif;font-size:18px;font-weight:700;color:#1F3D2B">1.390.000₫</span>
+            <div style="display:flex;align-items:center;border:1px solid #C9C0A8;border-radius:3px;height:38px">
+              <span style="width:34px;text-align:center;color:#5E6B60">−</span>
+              <span style="width:30px;text-align:center;font-weight:600;font-size:14.5px">1</span>
+              <span style="width:34px;text-align:center;color:#1F3D2B">+</span>
+            </div>
+            <a href="#" style="font-size:13px;color:#8C3A2B">Xóa</a>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:18px;padding:20px 0 4px">
+          <div class="ph" style="width:92px;height:92px;border-radius:3px;flex-shrink:0">[Ảnh]</div>
+          <div style="display:flex;flex-direction:column;gap:5px;flex-grow:1">
+            <span style="font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#9C6B2F;font-weight:600">D'Addario</span>
+            <span style="font-weight:600;font-size:15.5px">EXL120 09–42 · bộ 3 dây</span>
+            <span style="font-size:13.5px;color:#5E6B60">Phụ kiện</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <span style="font-family:Bitter,serif;font-size:18px;font-weight:700;color:#1F3D2B">390.000₫</span>
+            <div style="display:flex;align-items:center;border:1px solid #C9C0A8;border-radius:3px;height:38px">
+              <span style="width:34px;text-align:center;color:#5E6B60">−</span>
+              <span style="width:30px;text-align:center;font-weight:600;font-size:14.5px">2</span>
+              <span style="width:34px;text-align:center;color:#1F3D2B">+</span>
+            </div>
+            <a href="#" style="font-size:13px;color:#8C3A2B">Xóa</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- thông tin nhận hàng -->
+      <div class="card" style="padding:24px 26px;display:flex;flex-direction:column;gap:18px">
+        <h3 style="font-size:19px;font-weight:600">Thông tin người nhận</h3>
+
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span class="lbl">Họ và tên *</span>
+            <div class="inp inp-filled">Nguyễn Văn A</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span class="lbl">Số điện thoại *</span>
+            <div class="inp inp-filled">09xx xxx xxx</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <span class="lbl">Email (nhận hóa đơn &amp; phiếu bảo hành)</span>
+          <div class="inp">email@cua-ban.com</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <span class="lbl">Hình thức nhận hàng</span>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px">
+            <label style="border:1.5px solid #1F3D2B;background:#EDF1EC;border-radius:3px;padding:15px 16px;display:flex;gap:12px;align-items:flex-start">
+              <span class="radio radio-on" style="margin-top:2px"></span>
+              <span style="display:flex;flex-direction:column;gap:2px">
+                <b style="font-size:14.5px">Giao tận nơi</b>
+                <span style="font-size:13px;color:#5E6B60">Nội thành 24h · ngoại tỉnh 2–4 ngày</span>
+              </span>
+            </label>
+            <label style="border:1px solid #C9C0A8;border-radius:3px;padding:15px 16px;display:flex;gap:12px;align-items:flex-start">
+              <span class="radio" style="margin-top:2px"></span>
+              <span style="display:flex;flex-direction:column;gap:2px">
+                <b style="font-size:14.5px">Nhận tại shop</b>
+                <span style="font-size:13px;color:#5E6B60">Thử đàn trước khi thanh toán</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span class="lbl">Tỉnh / Thành phố *</span>
+            <div class="inp" style="justify-content:space-between">Chọn tỉnh/thành
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5E6B60" stroke-width="2"><path d="M6 9.5l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span class="lbl">Quận / Huyện *</span>
+            <div class="inp" style="justify-content:space-between">Chọn quận/huyện
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5E6B60" stroke-width="2"><path d="M6 9.5l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span class="lbl">Phường / Xã *</span>
+            <div class="inp" style="justify-content:space-between">Chọn phường/xã
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5E6B60" stroke-width="2"><path d="M6 9.5l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <span class="lbl">Địa chỉ cụ thể *</span>
+          <div class="inp">Số nhà, tên đường…</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <span class="lbl">Ghi chú cho shop</span>
+          <div style="border:1px solid #C9C0A8;border-radius:3px;background:#FCFAF3;padding:13px 14px;height:78px;font-size:14.5px;color:#8B9188">
+            Ví dụ: giao ngoài giờ hành chính, gọi trước khi tới…
+          </div>
+        </div>
+      </div>
+
+      <!-- thanh toán -->
+      <div class="card" style="padding:24px 26px;display:flex;flex-direction:column;gap:16px">
+        <h3 style="font-size:19px;font-weight:600">Phương thức thanh toán</h3>
+
+        <label style="border:1.5px solid #1F3D2B;background:#EDF1EC;border-radius:3px;padding:16px 18px;display:flex;gap:14px;align-items:center">
+          <span class="radio radio-on"></span>
+          <span style="display:flex;flex-direction:column;gap:2px;flex-grow:1">
+            <b style="font-size:15px">Chuyển khoản ngân hàng</b>
+            <span style="font-size:13.5px;color:#5E6B60">Quét QR sau khi đặt · shop xác nhận trong 15 phút</span>
+          </span>
+          <span class="tag" style="background:#E4EDE6;color:#1F3D2B">Khuyên dùng</span>
+        </label>
+
+        <label style="border:1px solid #C9C0A8;border-radius:3px;padding:16px 18px;display:flex;gap:14px;align-items:center">
+          <span class="radio"></span>
+          <span style="display:flex;flex-direction:column;gap:2px;flex-grow:1">
+            <b style="font-size:15px">VNPay / thẻ nội địa &amp; quốc tế</b>
+            <span style="font-size:13.5px;color:#5E6B60">Thanh toán online qua cổng VNPay</span>
+          </span>
+        </label>
+
+        <label style="border:1px solid #C9C0A8;border-radius:3px;padding:16px 18px;display:flex;gap:14px;align-items:center">
+          <span class="radio"></span>
+          <span style="display:flex;flex-direction:column;gap:2px;flex-grow:1">
+            <b style="font-size:15px">Ví MoMo</b>
+            <span style="font-size:13.5px;color:#5E6B60">Chuyển sang app MoMo để xác nhận</span>
+          </span>
+        </label>
+
+        <label style="border:1px solid #E3DCCA;border-radius:3px;padding:16px 18px;display:flex;gap:14px;align-items:center;opacity:.55">
+          <span class="radio" style="border-style:dashed"></span>
+          <span style="display:flex;flex-direction:column;gap:2px;flex-grow:1">
+            <b style="font-size:15px">COD — trả tiền khi nhận hàng</b>
+            <span style="font-size:13.5px;color:#5E6B60">Không áp dụng: đơn này vượt mức 10.000.000₫</span>
+          </span>
+        </label>
+      </div>
+
+    </div>
+
+    <!-- ── CỘT PHẢI: TÓM TẮT ĐƠN ── -->
+    <div class="card" style="padding:24px 24px 26px;display:flex;flex-direction:column;gap:4px">
+      <h3 style="font-size:18px;font-weight:600;padding-bottom:14px;border-bottom:1px solid #EAE4D5">Tóm tắt đơn hàng</h3>
+
+      <div class="sumrow" style="padding-top:16px"><span style="color:#5E6B60">Tạm tính (3 sản phẩm)</span><b>21.070.000₫</b></div>
+      <div class="sumrow"><span style="color:#5E6B60">Gói setup toàn diện</span><b>450.000₫</b></div>
+      <div class="sumrow"><span style="color:#5E6B60">Phí giao hàng</span><b style="color:#2F5A40">Miễn phí</b></div>
+      <div class="sumrow" style="border-bottom:1px solid #EAE4D5;padding-bottom:16px">
+        <span style="color:#5E6B60">Giảm giá — <span style="color:#9C6B2F;font-weight:600">NHATANH500</span></span>
+        <b style="color:#8C3A2B">−500.000₫</b>
+      </div>
+
+      <div style="display:flex;gap:9px;padding:16px 0;border-bottom:1px solid #EAE4D5">
+        <div class="inp" style="flex-grow:1;height:44px">Nhập mã giảm giá</div>
+        <button class="btn btn-alt" style="min-height:44px;padding:0 18px;font-size:14px">Áp dụng</button>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:18px 0 6px">
+        <span style="font-weight:600;font-size:16px">Tổng cộng</span>
+        <span style="font-family:Bitter,serif;font-size:27px;font-weight:700;color:#1F3D2B">21.020.000₫</span>
+      </div>
+      <p style="font-size:12.5px;color:#5E6B60;padding-bottom:16px">Đã bao gồm VAT. Phiếu bảo hành gửi qua email sau khi shop xác nhận.</p>
+
+      <button class="btn" style="width:100%">Đặt hàng</button>
+      <p style="font-size:12.5px;color:#5E6B60;text-align:center;padding-top:12px">
+        Bấm "Đặt hàng" là bạn đồng ý với <a href="#" style="font-weight:600">điều khoản mua bán</a> và <a href="#" style="font-weight:600">chính sách đổi trả</a> của shop.
+      </p>
+
+      <div style="border-top:1px solid #EAE4D5;margin-top:16px;padding-top:16px;display:flex;flex-direction:column;gap:11px">
+        <div style="display:flex;gap:10px;font-size:13.5px;color:#3C463E;align-items:center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2F5A40" stroke-width="1.8" style="flex-shrink:0"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Kiểm tra đàn trước khi thanh toán
+        </div>
+        <div style="display:flex;gap:10px;font-size:13.5px;color:#3C463E;align-items:center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2F5A40" stroke-width="1.8" style="flex-shrink:0"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Đổi trả 7 ngày nếu lỗi nhà sản xuất
+        </div>
+        <div style="display:flex;gap:10px;font-size:13.5px;color:#3C463E;align-items:center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2F5A40" stroke-width="1.8" style="flex-shrink:0"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          1 lần setup miễn phí sau 3 tháng
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background:#16291D;color:#B9C7BC;font-size:12.5px">
+    <div style="max-width:1280px;margin:0 auto;padding:22px 40px;display:flex;justify-content:space-between">
+      <span>© [NĂM] Nhật Anh Music Gear &amp; Service · [ĐỊA CHỈ SHOP]</span>
+      <span>COD · Chuyển khoản · VNPay · MoMo</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

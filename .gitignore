@@ -1,0 +1,19 @@
+# secrets — không bao giờ commit (mục 13)
+.env
+.env.local
+*.env
+
+# backend
+backend/target/
+
+# frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# misc
+.DS_Store
+*.log
+
+# Postgres nhung khi chay local
+backend/.localdb/

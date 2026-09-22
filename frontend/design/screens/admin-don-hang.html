@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>admin-don-hang — Nhật Anh Music</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bitter:wght@500;600;700&display=swap">
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:#F5F1E6;color:#18241C;
+      font-family:'Be Vietnam Pro',system-ui,sans-serif;font-size:14.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Bitter',Georgia,serif;margin:0;color:#16291D;letter-spacing:-.01em;line-height:1.2}
+    p{margin:0}
+    a{color:#1F3D2B;text-decoration:none}
+    a:hover{color:#9C6B2F}
+    .card{background:#FCFAF3;border:1px solid #DED7C4;border-radius:4px}
+    .nav{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:3px;
+      font-size:14.5px;font-weight:500;color:#A8BAAC}
+    .nav-on{background:#2A4835;color:#F5F1E6;font-weight:600}
+    .badge{margin-left:auto;background:#9C6B2F;color:#FFF9EC;font-size:11px;font-weight:700;border-radius:20px;padding:1px 7px}
+    .th{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#8B9188}
+    .st{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:2px;
+      font-size:11.5px;font-weight:600;letter-spacing:.03em}
+    .tab{padding:12px 4px;font-size:14.5px;font-weight:500;color:#5E6B60;border-bottom:2px solid transparent}
+    .tab-on{color:#16291D;font-weight:600;border-bottom-color:#1F3D2B}
+    .box{width:17px;height:17px;border:1.5px solid #B4AC97;border-radius:2px;background:#FCFAF3;flex-shrink:0}
+    .box-on{background:#1F3D2B;border-color:#1F3D2B;display:flex;align-items:center;justify-content:center}
+    .ctl{display:flex;align-items:center;gap:9px;border:1px solid #DED7C4;background:#F5F1E6;
+      border-radius:3px;height:42px;padding:0 14px;font-size:13.5px;font-weight:500;color:#3C463E}
+    .ph{background:repeating-linear-gradient(135deg,#EFEADB 0 9px,#E8E2D1 9px 18px);
+      display:flex;align-items:center;justify-content:center;color:#A69C86;font-size:9.5px;
+      letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+    .row{display:grid;grid-template-columns:30px 104px minmax(0,1fr) 120px 104px 116px 28px;
+      gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid #EAE4D5;font-size:14px}
+  </style>
+</head>
+<body>
+
+<div style="width:1440px;background:#F5F1E6;display:flex;align-items:stretch">
+
+  <aside style="width:248px;flex-shrink:0;background:#16291D;padding:22px 16px;display:flex;flex-direction:column;gap:6px">
+    <div style="display:flex;align-items:center;gap:12px;padding:0 6px 20px;border-bottom:1px solid #2B4536;margin-bottom:14px">
+      <img src="../assets/logo-sm.png" alt="" style="width:46px;height:46px">
+      <div style="display:flex;flex-direction:column">
+        <b style="font-family:Bitter,serif;font-size:15px;color:#F5F1E6">Nhật Anh</b>
+        <span style="font-size:11.5px;color:#8AA893;letter-spacing:.06em">TRANG QUẢN TRỊ</span>
+      </div>
+    </div>
+    <a class="nav" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8BAAC" stroke-width="1.7"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+      Tổng quan</a>
+    <a class="nav nav-on" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5F1E6" stroke-width="1.7"><path d="M4 7h15l-1.4 9.5a2 2 0 01-2 1.7H7.4a2 2 0 01-2-1.7L4 7z" stroke-linejoin="round"/><path d="M9 7V5.6A3 3 0 0112 3a3 3 0 013 2.6V7" stroke-linecap="round"/></svg>
+      Đơn hàng <span class="badge">6</span></a>
+    <a class="nav" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8BAAC" stroke-width="1.7"><path d="M3.5 7.5L12 3.5l8.5 4v9L12 20.5 3.5 16.5z" stroke-linejoin="round"/><path d="M3.5 7.5L12 11.5l8.5-4M12 11.5v9" stroke-linejoin="round"/></svg>
+      Kho đàn &amp; gear</a>
+    <a class="nav" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8BAAC" stroke-width="1.7"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.5h17M8 3v3.5M16 3v3.5" stroke-linecap="round"/></svg>
+      Lịch hẹn sửa chữa <span class="badge">4</span></a>
+    <a class="nav" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8BAAC" stroke-width="1.7"><path d="M12 4.5L3.5 8 12 11.5 20.5 8z" stroke-linejoin="round"/><path d="M6.5 9.8V15c0 1.6 2.5 2.8 5.5 2.8s5.5-1.2 5.5-2.8V9.8" stroke-linecap="round"/></svg>
+      Khóa học</a>
+    <a class="nav" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8BAAC" stroke-width="1.7"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c.5-3.4 3-5.3 6-5.3s5.5 1.9 6 5.3" stroke-linecap="round"/><path d="M16.5 7.4a2.8 2.8 0 010 5.4M18.5 19.5c-.2-2.1-.9-3.6-2.1-4.7" stroke-linecap="round"/></svg>
+      Khách hàng</a>
+    <a class="nav" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8BAAC" stroke-width="1.7"><path d="M4 19.5V13M9.3 19.5V7.5M14.7 19.5v-8M20 19.5V4.5" stroke-linecap="round"/></svg>
+      Báo cáo</a>
+  </aside>
+
+  <main style="flex-grow:1;min-width:0;display:flex;flex-direction:column">
+
+    <div style="background:#FCFAF3;border-bottom:1px solid #DED7C4;padding:16px 30px;display:flex;align-items:center;gap:16px">
+      <h1 style="font-size:22px;font-weight:600">Đơn hàng</h1>
+      <div style="flex-grow:1"></div>
+      <div class="ctl" style="width:280px;color:#8B9188">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B9188" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg>
+        Tìm mã đơn, tên hoặc số điện thoại…
+      </div>
+      <div class="ctl">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5E6B60" stroke-width="1.7"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.5h17M8 3v3.5M16 3v3.5" stroke-linecap="round"/></svg>
+        01/08 – 29/08/2026
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5E6B60" stroke-width="2"><path d="M6 9.5l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <button style="min-height:42px;padding:0 20px;border-radius:3px;border:1px solid #1F3D2B;background:#1F3D2B;
+        color:#F5F1E6;font-family:'Be Vietnam Pro',sans-serif;font-size:14px;font-weight:600;cursor:pointer">Tạo đơn thủ công</button>
+    </div>
+
+    <div style="padding:22px 30px 30px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start">
+
+      <!-- ── BẢNG ĐƠN ── -->
+      <div class="card" style="padding:0 18px 16px">
+
+        <div style="display:flex;gap:26px;border-bottom:1px solid #DED7C4">
+          <span class="tab tab-on">Tất cả <span style="color:#8B9188;font-weight:500">42</span></span>
+          <span class="tab">Chờ xác nhận <span style="color:#9C6B2F;font-weight:600">6</span></span>
+          <span class="tab">Đang chuẩn bị <span style="color:#8B9188;font-weight:500">3</span></span>
+          <span class="tab">Đang giao <span style="color:#8B9188;font-weight:500">5</span></span>
+          <span class="tab">Hoàn tất <span style="color:#8B9188;font-weight:500">26</span></span>
+          <span class="tab">Đã hủy <span style="color:#8B9188;font-weight:500">2</span></span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 0 12px">
+          <label style="display:flex;align-items:center;gap:9px;font-size:13.5px;color:#3C463E">
+            <span class="box box-on"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F5F1E6" stroke-width="3.4"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Đã chọn 2 đơn
+          </label>
+          <span style="width:1px;height:20px;background:#DED7C4"></span>
+          <a href="#" style="font-size:13.5px;font-weight:600">Xác nhận hàng loạt</a>
+          <a href="#" style="font-size:13.5px;font-weight:600">In phiếu giao</a>
+          <a href="#" style="font-size:13.5px;font-weight:600;color:#B33A28">Hủy đơn</a>
+          <div style="flex-grow:1"></div>
+          <div class="ctl" style="height:36px;font-size:13px">Sắp xếp: Mới nhất
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5E6B60" stroke-width="2"><path d="M6 9.5l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:30px 104px minmax(0,1fr) 120px 104px 116px 28px;gap:12px;
+          padding-bottom:10px;border-bottom:1px solid #DED7C4">
+          <span class="box"></span>
+          <span class="th">Mã đơn</span><span class="th">Khách &amp; sản phẩm</span><span class="th">Giá trị</span>
+          <span class="th">Thanh toán</span><span class="th">Trạng thái</span><span></span>
+        </div>
+
+        <div class="row" style="background:#EDF1EC;margin:0 -18px;padding-left:18px;padding-right:18px">
+          <span class="box box-on"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F5F1E6" stroke-width="3.4"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div style="display:flex;flex-direction:column;gap:1px"><b style="font-weight:600">#NA-2418</b><span style="font-size:12px;color:#8B9188">29/08 · 09:14</span></div>
+          <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+            <b style="font-weight:600">[Tên khách]</b>
+            <span style="font-size:13px;color:#8B9188">09xx xxx xxx · Fender Strat + Boss DS-1 + setup</span>
+          </div>
+          <b style="font-family:Bitter,serif">21.020.000₫</b>
+          <span style="color:#5E6B60">Chuyển khoản</span>
+          <span class="st" style="background:#FBEDD6;color:#8A5F1E">Chờ xác nhận</span>
+          <span style="text-align:center;color:#8B9188">⋯</span>
+        </div>
+
+        <div class="row">
+          <span class="box box-on"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#F5F1E6" stroke-width="3.4"><path d="M5 12.5l4.5 4.5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div style="display:flex;flex-direction:column;gap:1px"><b style="font-weight:600">#NA-2417</b><span style="font-size:12px;color:#8B9188">28/08 · 16:02</span></div>
+          <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+            <b style="font-weight:600">[Tên khách]</b>
+            <span style="font-size:13px;color:#8B9188">09xx xxx xxx · Boss DS-1 + dây EXL120</span>
+          </div>
+          <b style="font-family:Bitter,serif">1.780.000₫</b>
+          <span style="color:#5E6B60">COD</span>
+          <span class="st" style="background:#DCEBF5;color:#0B5578">Đang giao</span>
+          <span style="text-align:center;color:#8B9188">⋯</span>
+        </div>
+
+        <div class="row">
+          <span class="box"></span>
+          <div style="display:flex;flex-direction:column;gap:1px"><b style="font-weight:600">#NA-2416</b><span style="font-size:12px;color:#8B9188">28/08 · 11:20</span></div>
+          <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+            <b style="font-weight:600">[Tên khách]</b>
+            <span style="font-size:13px;color:#8B9188">09xx xxx xxx · Yamaha Pacifica 112V</span>
+          </div>
+          <b style="font-family:Bitter,serif">8.450.000₫</b>
+          <span style="color:#5E6B60">VNPay</span>
+          <span class="st" style="background:#DFEDE3;color:#245C3B">Hoàn tất</span>
+          <span style="text-align:center;color:#8B9188">⋯</span>
+        </div>
+
+        <div class="row">
+          <span class="box"></span>
+          <div style="display:flex;flex-direction:column;gap:1px"><b style="font-weight:600">#NA-2415</b><span style="font-size:12px;color:#8B9188">27/08 · 18:45</span></div>
+          <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+            <b style="font-weight:600">[Tên khách]</b>
+            <span style="font-size:13px;color:#8B9188">09xx xxx xxx · Cort AD810 Acoustic</span>
+          </div>
+          <b style="font-family:Bitter,serif">3.200.000₫</b>
+          <span style="color:#5E6B60">Tại shop</span>
+          <span class="st" style="background:#DFEDE3;color:#245C3B">Hoàn tất</span>
+          <span style="text-align:center;color:#8B9188">⋯</span>
+        </div>
+
+        <div class="row">
+          <span class="box"></span>
+          <div style="display:flex;flex-direction:column;gap:1px"><b style="font-weight:600">#NA-2414</b><span style="font-size:12px;color:#8B9188">27/08 · 10:08</span></div>
+          <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+            <b style="font-weight:600">[Tên khách]</b>
+            <span style="font-size:13px;color:#8B9188">09xx xxx xxx · Học phí lớp K18</span>
+          </div>
+          <b style="font-family:Bitter,serif">1.600.000₫</b>
+          <span style="color:#5E6B60">MoMo</span>
+          <span class="st" style="background:#F7DEDA;color:#8C2F20">Đã hủy</span>
+          <span style="text-align:center;color:#8B9188">⋯</span>
+        </div>
+
+        <div class="row">
+          <span class="box"></span>
+          <div style="display:flex;flex-direction:column;gap:1px"><b style="font-weight:600">#NA-2413</b><span style="font-size:12px;color:#8B9188">26/08 · 15:31</span></div>
+          <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+            <b style="font-weight:600">[Tên khách]</b>
+            <span style="font-size:13px;color:#8B9188">09xx xxx xxx · Squier Jazz Bass</span>
+          </div>
+          <b style="font-family:Bitter,serif">6.900.000₫</b>
+          <span style="color:#5E6B60">Chuyển khoản</span>
+          <span class="st" style="background:#E7E2D2;color:#5E6B60">Đang chuẩn bị</span>
+          <span style="text-align:center;color:#8B9188">⋯</span>
+        </div>
+
+        <div class="row" style="border-bottom:none">
+          <span class="box"></span>
+          <div style="display:flex;flex-direction:column;gap:1px"><b style="font-weight:600">#NA-2412</b><span style="font-size:12px;color:#8B9188">26/08 · 09:50</span></div>
+          <div style="display:flex;flex-direction:column;gap:1px;min-width:0">
+            <b style="font-weight:600">[Tên khách]</b>
+            <span style="font-size:13px;color:#8B9188">09xx xxx xxx · Pickup SH-4 + công lắp</span>
+          </div>
+          <b style="font-family:Bitter,serif">2.850.000₫</b>
+          <span style="color:#5E6B60">Tại shop</span>
+          <span class="st" style="background:#DFEDE3;color:#245C3B">Hoàn tất</span>
+          <span style="text-align:center;color:#8B9188">⋯</span>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:16px">
+          <span style="font-size:13.5px;color:#8B9188">Hiển thị 1–7 trong 42 đơn</span>
+          <div style="display:flex;gap:7px">
+            <div style="width:38px;height:38px;border:1px solid #DED7C4;border-radius:3px;background:#F5F1E6;display:flex;align-items:center;justify-content:center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B0A891" stroke-width="2"><path d="M14.5 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div style="width:38px;height:38px;border:1px solid #1F3D2B;background:#1F3D2B;color:#F5F1E6;border-radius:3px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px">1</div>
+            <div style="width:38px;height:38px;border:1px solid #DED7C4;background:#F5F1E6;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:14px">2</div>
+            <div style="width:38px;height:38px;border:1px solid #DED7C4;background:#F5F1E6;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:14px">3</div>
+            <div style="width:38px;height:38px;border:1px solid #DED7C4;border-radius:3px;background:#F5F1E6;display:flex;align-items:center;justify-content:center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1F3D2B" stroke-width="2"><path d="M9.5 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CHI TIẾT ĐƠN ── -->
+      <div class="card" style="padding:22px 22px 24px;display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between">
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <h3 style="font-size:19px;font-weight:600">#NA-2418</h3>
+            <span style="font-size:13px;color:#8B9188">Đặt lúc 09:14 · 29/08/2026</span>
+          </div>
+          <span class="st" style="background:#FBEDD6;color:#8A5F1E">Chờ xác nhận</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px;padding-bottom:16px;border-bottom:1px solid #EAE4D5">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="ph" style="width:52px;height:52px;border-radius:3px;flex-shrink:0">[Ảnh]</div>
+            <div style="display:flex;flex-direction:column;gap:1px;flex-grow:1;min-width:0">
+              <b style="font-size:14px;font-weight:600">Fender Player Stratocaster MIM</b>
+              <span style="font-size:12.5px;color:#8B9188">Sunburst · dây 09–42 · ×1</span>
+            </div>
+            <b style="font-family:Bitter,serif;font-size:14px">18.900.000₫</b>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:52px;height:52px;border-radius:3px;flex-shrink:0;background:#EDF1EC;display:flex;align-items:center;justify-content:center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3D2B" stroke-width="1.6"><path d="M14.5 5.5a3.8 3.8 0 004.9 4.9L21 12l-9 9-3-3 9-9-1.6-1.6z" stroke-linejoin="round"/><path d="M6.5 3.5l3 3-2 2-3-3z" stroke-linejoin="round"/></svg></div>
+            <div style="display:flex;flex-direction:column;gap:1px;flex-grow:1;min-width:0">
+              <b style="font-size:14px;font-weight:600">Gói setup toàn diện</b>
+              <span style="font-size:12.5px;color:#8B9188">Cần xếp lịch xưởng trước khi giao</span>
+            </div>
+            <b style="font-family:Bitter,serif;font-size:14px">450.000₫</b>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="ph" style="width:52px;height:52px;border-radius:3px;flex-shrink:0">[Ảnh]</div>
+            <div style="display:flex;flex-direction:column;gap:1px;flex-grow:1;min-width:0">
+              <b style="font-size:14px;font-weight:600">Boss DS-1 Distortion Pedal</b>
+              <span style="font-size:12.5px;color:#8B9188">Mới 100% · BH 12 tháng · ×1</span>
+            </div>
+            <b style="font-family:Bitter,serif;font-size:14px">1.390.000₫</b>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="ph" style="width:52px;height:52px;border-radius:3px;flex-shrink:0">[Ảnh]</div>
+            <div style="display:flex;flex-direction:column;gap:1px;flex-grow:1;min-width:0">
+              <b style="font-size:14px;font-weight:600">D'Addario EXL120</b>
+              <span style="font-size:12.5px;color:#8B9188">Bộ 3 dây · ×2</span>
+            </div>
+            <b style="font-family:Bitter,serif;font-size:14px">780.000₫</b>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:16px;border-bottom:1px solid #EAE4D5">
+          <div style="display:flex;justify-content:space-between;font-size:13.5px"><span style="color:#5E6B60">Tạm tính</span><span>21.070.000₫</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px"><span style="color:#5E6B60">Setup</span><span>450.000₫</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px"><span style="color:#5E6B60">Giảm giá NHATANH500</span><span style="color:#B33A28">−500.000₫</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px"><span style="color:#5E6B60">Phí giao</span><span style="color:#2F7A50">Miễn phí</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;padding-top:6px">
+            <b style="font-size:15px">Tổng</b>
+            <b style="font-family:Bitter,serif;font-size:20px;color:#1F3D2B">21.020.000₫</b>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:9px;padding-bottom:16px;border-bottom:1px solid #EAE4D5">
+          <span class="th">Giao hàng</span>
+          <span style="font-size:14px"><b>[Tên khách]</b> · 09xx xxx xxx</span>
+          <span style="font-size:13.5px;color:#5E6B60">[Địa chỉ giao hàng của khách]</span>
+          <span style="font-size:13.5px;color:#5E6B60">Ghi chú: gọi trước khi giao, sau 18h</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <button style="width:100%;min-height:48px;border-radius:3px;border:1px solid #1F3D2B;background:#1F3D2B;
+            color:#F5F1E6;font-family:'Be Vietnam Pro',sans-serif;font-size:15px;font-weight:600;cursor:pointer">Xác nhận đơn &amp; xếp lịch setup</button>
+          <div style="display:flex;gap:10px">
+            <button style="flex-grow:1;min-height:44px;border-radius:3px;border:1px solid #1F3D2B;background:transparent;
+              color:#1F3D2B;font-family:'Be Vietnam Pro',sans-serif;font-size:14px;font-weight:600;cursor:pointer">In phiếu</button>
+            <button style="flex-grow:1;min-height:44px;border-radius:3px;border:1px solid #C9C0A8;background:transparent;
+              color:#B33A28;font-family:'Be Vietnam Pro',sans-serif;font-size:14px;font-weight:600;cursor:pointer">Hủy đơn</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
