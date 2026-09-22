@@ -4,7 +4,12 @@
   command = "npm run build"
   publish = ".next"
 
+# Khai bao ro runtime Next.js. Khong khai bao thi Netlify co the phuc vu .next
+# nhu thu muc tinh -> moi trang 404.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 # Bien moi truong dat trong Netlify UI (Site configuration > Environment variables):
-#   NEXT_PUBLIC_API_BASE = https://<domain-render-hoac-railway>/api/v1
-#   NEXT_PUBLIC_SITE_URL = https://<domain-netlify>
+#   NEXT_PUBLIC_API_BASE = https://nhatanh-backend.onrender.com/api/v1
+#   NEXT_PUBLIC_SITE_URL = https://nhatanhmusic.netlify.app
 #   NEXT_PUBLIC_NOINDEX  = true   (xoa khi mo ban)
