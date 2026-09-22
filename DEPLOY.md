@@ -6,13 +6,13 @@ tính bất kỳ** để nhập ảnh, giá, thông tin thật — không cần 
 Chưa phải bản bán hàng chính thức. Khi có đủ ảnh thật và thông tin thật thì
 cũng chính bản này, không phải deploy lại.
 
-Ba dịch vụ, tất cả có gói free đủ dùng cho việc này:
+Ba dịch vụ, tổng **5 $/tháng**, không tăng khi bắt đầu bán:
 
 | Phần | Dịch vụ | Tiền |
 |---|---|---|
 | Database | **Neon** | Free (0,5 GB — kho 128 cây dùng chừng 5 MB) |
 | Backend Spring Boot | **Railway** | ~5 $/tháng — gói free ngủ sau 15 phút, ông chủ mở admin sẽ chờ gần một phút |
-| Frontend Next.js | **Vercel** | Free để xem thử. **Gói Hobby cấm dùng thương mại** — lúc bán thật phải lên Pro (20 $) hoặc chuyển Cloudflare Pages |
+| Frontend Next.js | **Netlify** | Free, **cho phép dùng thương mại** — không phải đổi gì khi bắt đầu bán. (Vercel free cấm thương mại, lên Pro là 20 $) |
 | Ảnh | **Cloudflare R2** | Free 10 GB. Làm sau, ở bước 5 |
 
 Đẩy code lên GitHub trước (repo private), cả ba dịch vụ đều deploy từ GitHub.
@@ -59,20 +59,22 @@ Backend **từ chối khởi động** nếu thiếu `JWT_SECRET`, `ADMIN_PASSWO
 đó là chủ ý, để không bao giờ chạy trên mạng với mật khẩu mặc định `admin123`.
 Lỗi sẽ ghi rõ tên biến còn thiếu trong log Railway.
 
-## Bước 3 — Vercel: chạy frontend
+## Bước 3 — Netlify: chạy frontend
 
-1. vercel.com → Add New → Project → import repo
-2. **Root directory**: `nhatanh/frontend`. Framework tự nhận Next.js
-3. **Environment Variables**:
+1. netlify.com → Add new site → **Import an existing project** → GitHub → chọn repo
+2. **Base directory**: `nhatanh/frontend`. Netlify tự nhận Next.js và cài adapter,
+   không cần chỉnh lệnh build
+3. **Environment variables** (Site configuration → Environment variables):
    ```
    NEXT_PUBLIC_API_BASE   = https://<domain-railway>/api/v1
-   NEXT_PUBLIC_SITE_URL   = https://<domain-vercel>     (điền sau khi có)
+   NEXT_PUBLIC_SITE_URL   = https://<domain-netlify>     (điền sau khi có)
    ```
-4. Deploy. Được domain dạng `nhatanh.vercel.app`.
+4. Deploy. Được domain dạng `nhatanh.netlify.app`. Đổi tên ở Site configuration →
+   Change site name nếu muốn gọn hơn.
 5. **Quay lại Railway**, điền nốt hai biến rồi Redeploy:
    ```
-   CORS_ORIGINS           = https://nhatanh.vercel.app
-   MEDIA_PUBLIC_BASE_URL  = https://nhatanh.vercel.app/media
+   CORS_ORIGINS           = https://nhatanh.netlify.app
+   MEDIA_PUBLIC_BASE_URL  = https://nhatanh.netlify.app/media
    ```
    (`/media` là route vẽ ô chờ ảnh — dùng tạm tới khi có R2 ở bước 5)
 
@@ -80,7 +82,7 @@ Lỗi sẽ ghi rõ tên biến còn thiếu trong log Railway.
 
 Gửi ba thứ:
 
-- Link: `https://nhatanh.vercel.app/admin`
+- Link: `https://nhatanh.netlify.app/admin`
 - Email và mật khẩu tạm (`ADMIN_EMAIL` / `ADMIN_PASSWORD` ở bước 2)
 - Dặn: vào **Tài khoản & mật khẩu** đổi mật khẩu ngay lần đầu, rồi vào
   **Nội dung web** điền hotline, địa chỉ, giờ mở cửa
@@ -97,7 +99,7 @@ Không có bước này thì nút **Chọn ảnh** trong admin bị ẩn và tra
 3. Bucket → Settings → **CORS policy**:
    ```json
    [{
-     "AllowedOrigins": ["https://nhatanh.vercel.app"],
+     "AllowedOrigins": ["https://nhatanh.netlify.app"],
      "AllowedMethods": ["PUT", "GET"],
      "AllowedHeaders": ["Content-Type", "Cache-Control"],
      "MaxAgeSeconds": 3600
@@ -124,15 +126,15 @@ chọn một file, trình duyệt tự đẩy ba bản: hiển thị 1600px, thu
 ## Kiểm tra sau khi lên
 
 ```
-https://<vercel>/                          trang chủ hiện 12 cây mẫu
-https://<vercel>/dan?category=guitar-dien  bộ lọc chạy
-https://<vercel>/admin                     đăng nhập được, sửa được một cây
+https://<netlify>/                          trang chủ hiện 12 cây mẫu
+https://<netlify>/dan?category=guitar-dien  bộ lọc chạy
+https://<netlify>/admin                     đăng nhập được, sửa được một cây
 https://<railway>/swagger-ui.html          tài liệu API
 ```
 
 ## Khi sửa code về sau
 
-Push lên GitHub là cả Railway lẫn Vercel tự build và deploy lại. Migration mới
+Push lên GitHub là cả Railway lẫn Netlify tự build và deploy lại. Migration mới
 (`V6__…sql`) tự chạy lúc backend khởi động. **Không bao giờ sửa file migration
 đã chạy** — Flyway sẽ báo checksum lệch và từ chối khởi động; viết file mới.
 
@@ -141,6 +143,5 @@ Push lên GitHub là cả Railway lẫn Vercel tự build và deploy lại. Migr
 - [ ] Ảnh thật cho từng cây (bước 5 xong)
 - [ ] Hotline, địa chỉ, ĐKKD điền thật trong Nội dung web
 - [ ] Tắt tài khoản `khach@nhatanh.vn` — profile `server` đã tắt sẵn
-- [ ] Vercel Pro hoặc Cloudflare Pages (Hobby cấm thương mại)
-- [ ] Tên miền riêng, gắn vào cả Vercel lẫn Railway
+- [ ] Tên miền riêng, gắn vào cả Netlify lẫn Railway
 - [ ] Backup: Neon có point-in-time restore 7 ngày trên gói free — bật lên
