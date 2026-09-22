@@ -22,11 +22,15 @@ export async function UtilityBar() {
   return (
     <div className="utility-bar">
       <div className="container">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <IconStar size={14} color="#D4B784" />
-          <b>{shop.rating}/5</b>
-          <span>· {shop.reviewCount} đánh giá Google</span>
-        </div>
+        {shop.rating ? (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <IconStar size={14} color="#D4B784" />
+            <b>{shop.rating}/5</b>
+            {shop.reviewCount && <span>· {shop.reviewCount} đánh giá Google</span>}
+          </div>
+        ) : (
+          <span>{SHOP.name}</span>
+        )}
         <div style={{ display: 'flex', alignItems: 'center', gap: 18, flexWrap: 'wrap' }}>
           <span>Hotline &amp; Zalo: {shop.phone}</span>
           <span style={{ opacity: 0.35 }}>/</span>

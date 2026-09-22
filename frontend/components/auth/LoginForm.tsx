@@ -18,7 +18,9 @@ export function LoginForm() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(
+    params.get('expired') ? 'Phiên đăng nhập đã hết hạn. Đăng nhập lại để tiếp tục.' : null,
+  );
   const [busy, setBusy] = useState(false);
 
   async function submit(e: React.FormEvent) {

@@ -45,10 +45,23 @@ async function request<T>(path: string, options: FetchOptions = {}): Promise<T> 
   const body = text ? JSON.parse(text) : null;
 
   if (!res.ok) {
+    // Đang ở trang quản trị mà backend nói "không có quyền" thì gần như chắc là
+    // token hết hạn. Đưa về đăng nhập, nhớ đường dẫn để quay lại đúng chỗ đang làm.
+    if ((res.status === 401 || res.status === 403) && token && typeof window !== 'undefined') {
+      const here = window.location.pathname + window.location.search;
+      if (here.startsWith('/admin')) {
+        document.cookie = 'na_token=; path=/; max-age=0; samesite=lax';
+        document.cookie = 'na_role=; path=/; max-age=0; samesite=lax';
+        window.location.href = `/dang-nhap?next=${encodeURIComponent(here)}&expired=1`;
+      }
+    }
     throw new ApiRequestError(
       res.status,
       body?.code ?? 'UNKNOWN',
-      body?.message ?? 'Không gọi được máy chủ.',
+      body?.message ??
+        (res.status === 401 || res.status === 403
+          ? 'Phiên đăng nhập đã hết hạn. Đăng nhập lại để tiếp tục.'
+          : 'Không gọi được máy chủ.'),
       body?.fields,
     );
   }

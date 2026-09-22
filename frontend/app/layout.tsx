@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     locale: 'vi_VN',
     siteName: SHOP.name,
   },
+  robots: process.env.NEXT_PUBLIC_NOINDEX === 'true' ? { index: false, follow: false } : undefined,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

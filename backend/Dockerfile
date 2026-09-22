@@ -17,4 +17,5 @@ ENV SPRING_PROFILES_ACTIVE=server
 ENV JAVA_OPTS="-Xmx384m"
 
 EXPOSE 8080
+# Railway: Settings > Healthcheck path = /actuator/health
 CMD ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]

@@ -897,6 +897,11 @@ textarea.input {
 
 /* ── Bề rộng trung gian & mobile (FRONTEND.md) ─── */
 @media (max-width: 1080px) {
+  /* Ba lưới hai cột của trang chủ / danh sách / chi tiết xếp dọc lại */
+  .hero-grid { grid-template-columns: minmax(0, 1fr) !important; gap: var(--sp-8) !important; padding-top: 40px !important; padding-bottom: 44px !important; }
+  .hero-grid h1 { font-size: var(--h1-page) !important; }
+  .listing-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .detail-grid { grid-template-columns: minmax(0, 1fr) !important; gap: var(--sp-8) !important; }
   .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .site-footer .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

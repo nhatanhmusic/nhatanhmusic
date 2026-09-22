@@ -28,7 +28,9 @@ Ba dịch vụ, tổng **5 $/tháng** giai đoạn này, **14 $** khi bán thậ
    ```
 3. Ghi lại: `DB_URL` (chuỗi trên), `DB_USER`, `DB_PASSWORD` (Neon hiện ở cùng chỗ)
 
-Không cần tạo bảng — Flyway tự chạy 6 migration khi backend khởi động lần đầu.
+Không cần tạo bảng — Flyway tự chạy 7 migration khi backend khởi động lần đầu.
+**Kho đàn lên production là trống** (đàn mẫu chỉ nạp ở máy lập trình viên); nội dung
+chủ shop đã nhập ở local (hotline, địa chỉ, đoạn giới thiệu) có sẵn nhờ V7.
 
 ## Bước 2 — Railway: chạy backend
 
@@ -51,9 +53,10 @@ Không cần tạo bảng — Flyway tự chạy 6 migration khi backend khởi 
    -join ((48..57)+(65..90)+(97..122) | Get-Random -Count 48 | % {[char]$_})
    ```
 
-4. Settings → **Networking → Generate domain**. Được dạng
+4. Settings → **Deploy → Healthcheck path**: `/actuator/health`
+5. Settings → **Networking → Generate domain**. Được dạng
    `nhatanh-backend-production.up.railway.app`. Ghi lại.
-5. Deploy xong, mở `https://<domain-railway>/api/v1/catalog/filters` — thấy JSON là sống.
+6. Deploy xong, mở `https://<domain-railway>/api/v1/catalog/filters` — thấy JSON là sống.
 
 Backend **từ chối khởi động** nếu thiếu `JWT_SECRET`, `ADMIN_PASSWORD`, `DB_URL`… —
 đó là chủ ý, để không bao giờ chạy trên mạng với mật khẩu mặc định `admin123`.
@@ -68,6 +71,7 @@ Lỗi sẽ ghi rõ tên biến còn thiếu trong log Railway.
    ```
    NEXT_PUBLIC_API_BASE   = https://<domain-railway>/api/v1
    NEXT_PUBLIC_SITE_URL   = https://<domain-netlify>     (điền sau khi có)
+   NEXT_PUBLIC_NOINDEX    = true    ← chặn Google index khi chưa có ảnh thật; xóa biến này lúc mở bán
    ```
 4. Deploy. Được domain dạng `nhatanh.netlify.app`. Đổi tên ở Site configuration →
    Change site name nếu muốn gọn hơn.
@@ -141,6 +145,7 @@ Push lên GitHub là cả Railway lẫn Netlify tự build và deploy lại. Mig
 ## Trước khi mở bán thật
 
 - [ ] Ảnh thật cho từng cây (bước 5 xong)
+- [ ] Xóa biến `NEXT_PUBLIC_NOINDEX` trên Netlify để Google bắt đầu index
 - [ ] Hotline, địa chỉ, ĐKKD điền thật trong Nội dung web
 - [ ] Tắt tài khoản `khach@nhatanh.vn` — profile `server` đã tắt sẵn
 - [ ] Tên miền riêng, gắn vào cả Netlify lẫn Railway
