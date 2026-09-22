@@ -36,7 +36,7 @@ chủ shop đã nhập ở local (hotline, địa chỉ, đoạn giới thiệu)
 ## Bước 2 — Railway: chạy backend
 
 1. railway.app → New project → **Deploy from GitHub repo** → chọn repo
-2. Settings → **Root directory**: `nhatanh/backend`. Railway thấy `Dockerfile` là tự build
+2. Settings → **Root directory**: `backend`. Railway thấy `Dockerfile` là tự build
 3. **Variables** → dán từng dòng trong `backend/.env.server.example`, điền giá trị thật:
 
    ```
@@ -70,14 +70,11 @@ tiền, không cần thẻ**. Backend ngủ sau 15 phút không ai dùng; lần 
 ~1 phút. Database **vẫn ở Neon** (bước 1) — không dùng Postgres của Render vì nó tự xóa
 sau 30 ngày.
 
-1. render.com → New → **Web Service** → connect GitHub → chọn repo
-2. **Root Directory**: `nhatanh/backend` · **Runtime**: Docker · **Instance type**: Free
-   · **Region**: Singapore
-3. **Environment** → dán cùng bộ biến như Railway ở trên (`DB_URL`, `JWT_SECRET`,
-   `ADMIN_PASSWORD`…). Thêm `JAVA_OPTS=-Xmx320m` cho vừa 512 MB RAM của gói Free
-4. **Health Check Path**: `/actuator/health`
-5. Deploy. Domain dạng `nhatanh-backend.onrender.com` — dùng domain này ở bước 3
-   thay cho domain Railway
+1. render.com → New → **Blueprint** → connect GitHub → chọn repo. Render đọc
+   `render.yaml` ở gốc repo: Docker, gói Free, Singapore, health check — tự điền hết
+2. Render chỉ hỏi 5 ô: `DB_URL`, `DB_USER`, `DB_PASSWORD` (từ Neon), `ADMIN_EMAIL`,
+   `ADMIN_PASSWORD`. `JWT_SECRET` Render tự sinh
+3. Apply. Domain dạng `nhatanh-backend.onrender.com` — dùng ở bước 3 thay domain Railway
 
 Muốn hết ngủ về sau: tạo service trên Railway với cùng biến môi trường, trỏ cùng
 `DB_URL` → dữ liệu giữ nguyên, chỉ đổi `NEXT_PUBLIC_API_BASE` bên Netlify.
@@ -85,8 +82,7 @@ Muốn hết ngủ về sau: tạo service trên Railway với cùng biến môi
 ## Bước 3 — Netlify: chạy frontend
 
 1. netlify.com → Add new site → **Import an existing project** → GitHub → chọn repo
-2. **Base directory**: `nhatanh/frontend`. Netlify tự nhận Next.js và cài adapter,
-   không cần chỉnh lệnh build
+2. Netlify đọc `netlify.toml` ở gốc repo (base `frontend`) — không phải chỉnh gì
 3. **Environment variables** (Site configuration → Environment variables):
    ```
    NEXT_PUBLIC_API_BASE   = https://<domain-railway>/api/v1

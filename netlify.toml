@@ -1,0 +1,10 @@
+# Netlify doc file nay khi import repo — khong phai dien base directory bang tay.
+[build]
+  base    = "frontend"
+  command = "npm run build"
+  publish = ".next"
+
+# Bien moi truong dat trong Netlify UI (Site configuration > Environment variables):
+#   NEXT_PUBLIC_API_BASE = https://<domain-render-hoac-railway>/api/v1
+#   NEXT_PUBLIC_SITE_URL = https://<domain-netlify>
+#   NEXT_PUBLIC_NOINDEX  = true   (xoa khi mo ban)
