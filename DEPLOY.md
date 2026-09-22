@@ -6,13 +6,13 @@ tính bất kỳ** để nhập ảnh, giá, thông tin thật — không cần 
 Chưa phải bản bán hàng chính thức. Khi có đủ ảnh thật và thông tin thật thì
 cũng chính bản này, không phải deploy lại.
 
-Ba dịch vụ, tổng **5 $/tháng**, không tăng khi bắt đầu bán:
+Ba dịch vụ, tổng **5 $/tháng** giai đoạn này, **14 $** khi bán thật (Netlify Personal):
 
 | Phần | Dịch vụ | Tiền |
 |---|---|---|
 | Database | **Neon** | Free (0,5 GB — kho 128 cây dùng chừng 5 MB) |
 | Backend Spring Boot | **Railway** | ~5 $/tháng — gói free ngủ sau 15 phút, ông chủ mở admin sẽ chờ gần một phút |
-| Frontend Next.js | **Netlify** | Free, **cho phép dùng thương mại** — không phải đổi gì khi bắt đầu bán. (Vercel free cấm thương mại, lên Pro là 20 $) |
+| Frontend Next.js | **Netlify** | Free 300 credit/tháng (≈20 lần deploy hoặc 15 GB), **hết là web tắt tới đầu tháng** — gom code rồi deploy, đừng push lắt nhắt. Cho phép thương mại. Khi bán thật: Personal 9 $ |
 | Ảnh | **Cloudflare R2** | Free 10 GB. Làm sau, ở bước 5 |
 
 Đẩy code lên GitHub trước (repo private), cả ba dịch vụ đều deploy từ GitHub.
@@ -144,4 +144,5 @@ Push lên GitHub là cả Railway lẫn Netlify tự build và deploy lại. Mig
 - [ ] Hotline, địa chỉ, ĐKKD điền thật trong Nội dung web
 - [ ] Tắt tài khoản `khach@nhatanh.vn` — profile `server` đã tắt sẵn
 - [ ] Tên miền riêng, gắn vào cả Netlify lẫn Railway
-- [ ] Backup: Neon có point-in-time restore 7 ngày trên gói free — bật lên
+- [ ] Backup: Neon free chỉ khôi phục 6 giờ — đặt lịch `pg_dump` hằng tuần lên R2 theo mục 13 kế hoạch
+- [ ] Netlify lên Personal 9 $ trước khi chạy quảng cáo, kẻo hết credit giữa tháng là web tắt
