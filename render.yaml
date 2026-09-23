@@ -28,9 +28,9 @@ services:
         sync: false
       - key: ADMIN_NAME
         value: Nhật Anh
-      - key: CORS_ORIGINS             # sua thanh domain Netlify that sau buoc 4
-        value: https://nhatanh.netlify.app
-      - key: MEDIA_PUBLIC_BASE_URL
-        value: https://nhatanh.netlify.app/media
+      - key: CORS_ORIGINS             # domain Netlify that; nhieu domain thi cach nhau dau phay
+        value: https://nhatanhmusic.netlify.app
+      - key: MEDIA_PUBLIC_BASE_URL    # doi sang domain R2 khi bat kho anh
+        value: https://nhatanhmusic.netlify.app/media
       - key: APP_DEMO_CUSTOMER_ENABLED
         value: "false"

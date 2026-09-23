@@ -46,7 +46,7 @@ export function LoginForm() {
       setError(
         err instanceof ApiRequestError
           ? err.message
-          : 'Không gọi được máy chủ. Backend đã chạy ở cổng 8080 chưa?',
+          : 'Chưa kết nối được máy chủ. Máy chủ có thể đang khởi động lại sau thời gian không dùng — chờ khoảng một phút rồi thử lại.',
       );
       setBusy(false);
     }

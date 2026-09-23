@@ -254,7 +254,7 @@ export async function safe<T>(promise: Promise<T>): Promise<{ data: T | null; er
     const message =
       err instanceof ApiRequestError
         ? err.message
-        : 'Không kết nối được máy chủ. Kiểm tra backend đã chạy ở cổng 8080 chưa.';
+        : 'Chưa kết nối được máy chủ. Máy chủ có thể đang khởi động lại sau thời gian không dùng — chờ khoảng một phút rồi thử lại.';
     return { data: null, error: message };
   }
 }
